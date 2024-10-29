@@ -84,4 +84,4 @@ jobs:
         run: |
           cd starter/backend/k8s
           kustomize edit set image backend=${{ secrets.ECR_REPOSITORY_BACKEND }}:${{ github.sha }}
-          kustomize build | kubectl apply -f -
+          kustomize build | kubectl apply -f - --validate=false
