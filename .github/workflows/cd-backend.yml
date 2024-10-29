@@ -63,6 +63,7 @@ jobs:
         run: |
           docker build -t ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY_BACKEND }}:${{ github.sha }} .
           docker push ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY_BACKEND }}:${{ github.sha }}
+        working-directory: starter/backend
 
   deploy:
     runs-on: ubuntu-latest
